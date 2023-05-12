@@ -1,0 +1,217 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Estimation du revenu d'un individu </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<style>
+    @import url('https://fonts.google.com/specimen/Poppins');
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.container .title {
+    font-size: 35px;
+    font-weight: 900;
+    position: relative;
+}
+
+.container .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 70px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+
+}
+.field-divided {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size:medium;
+}
+.title2{
+    color: black;
+    font-weight: bold;
+    font-size:large;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+.bouton{
+    border-radius: 12px;
+    padding: 12px 140px;
+    transition-duration: 0.4s;
+    color: black;
+    font-weight:600px;
+    font-size:x-large;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 0;
+  position:relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.bouton:hover{
+    background-color: #5c4caf; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.bouton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.bouton:hover span {
+  padding-right: 25px;
+}
+</style>
+        <body>        
+                <div class="container">
+                    <br>
+                    <h1 class="title">Le revenu annuel d'un individu</h1>
+                    <br><br><br>
+                    <form method="POST" ,="" action="/predict">
+                        <ul class="form-style-1" style="list-style-type:none;">
+                            <li>
+                            <li><label class="title2" >Age : </label><input type="number" name="a"
+                                    min="15" max="99" class="field-divided" placeholder="Age.." /> </li>
+                            <br>
+                            <table style="width:100%">
+                                <td style="width:40%"><label class="title2">Sexe :</label></td>
+                            <td style="width:30%"><input type="Radio" name="sexe"value="Homme"> Homme </td>
+                        <td style="width:30%">    <input type="Radio" name="sexe" value="Femme"> Femme</td>
+                            </table>
+                            <br><br>
+                            <label class="title2">La catégorie socio-professionnelle :
+                            </label>
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="Foderal - gov"> Gouvernement fédéral
+                                    </td>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="Local-gov"> Gouvernement local<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="private"> Privé</td>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="Self-emp-inc"> Travailleur
+                                        indépendant incorporé<br></td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="without-pay"> Sans salaire</td>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="State_gov"> Gouvernement d'état<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="workclass" value="Self-emp-not-inc"> Travailleur
+                                        indépendant non constitué en société</td>
+                                </tr> <br><br>
+                            </table><br><br>
+                            <li><label class="title2">Le niveau d'éducation (Nombre d'années étudiées) : </label><input type="number"
+                                    placeholder="Niveau.." name="d" class="field-divided" /> </li><br><br>
+                            <label class="title2">La profession :
+                            </label> <br><br>
+    
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="prof"> Spécialité professionnelle
+                                    </td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="handlers"> Manutentionnaires et
+                                        nettoyeurs</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="craft"> Réparation d'artisanat</td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="exec"> Cadre dirigeant</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="sadm"> Personnel de bureau</td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="machine"> Inspecteur d'opération de
+                                        machine</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="transport"> Transport et
+                                        déplacement</td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="sales"> Ventes</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="ff"> Agricole / Pecheur</td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="tech"> Support technique</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="protective"> Services de protection
+                                    </td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="priv"> Service domestique privé
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="armed"> Les forces armées</td>
+                                    <td style="width:50%"><input type="Radio" name="occupation" value="other"> Autres services</td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <li><label class="title2">Heures par semaine :             </label><input
+                                    type="number" placeholder="Heures.." name="g" class="field-divided" /> </li>
+                            <br><br>
+    
+                            <label class="title2">La race :
+                            </label> <br>
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:50%"><input type="Radio"  name="race" value="white"> Blanc(he)  </td>
+                                    <td style="width:50%"><input type="Radio" name="race" value="asian"> Asiatique et Pacifique </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="race" value="black"> Noir(e)</td>
+                                    <td style="width:50%"><input type="Radio" name="race" value="amer"> Amérindien ou Inuit </td>
+                                </tr>
+                                <tr><td style="width:50%"><input type="Radio" name="race" value="other"> Autre</td></tr>
+                            </table>     
+                            <br><br>
+                            <label class="title2">Le continent :
+                            </label> <br>
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="content" value="North America"> Amérique du Nord </td>
+                                    <td style="width:50%"><input type="Radio" name="content" value="europe"> Europe</td>
+                                </tr> 
+                                <tr>
+                                    <td style="width:50%"><input type="Radio" name="content" value="central"> Amérique centrale et Amérique du Sud</td>
+                                    <td style="width:50%"><input type="Radio" name="content" value="Asia"> Asie</td>
+                                </tr>           
+                            </table>
+    
+                            <br>
+                            <table style="width:100%">
+                                <td style="width:40%"><label class="title2">Statut matrimonial : </label> </td>
+                                <td style="width:30%"><input type="Radio" name="i" value="Married"> Marié(e) </td>
+                                <td style="width:30%"><input type="Radio" name="i" value="Femme"> Célibataire<br></td>
+                            </table><br><br><br><br><br>
+                            <input type="submit" ,="" value="Estimation", class="bouton">
+                    </form>
+                </div>
+        </body>
+    
+</html>

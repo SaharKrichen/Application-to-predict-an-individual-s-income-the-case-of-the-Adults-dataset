@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+        <title> Estimation du revenu d'un individu </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+.resultat{
+    font-size: 35px;
+    font-weight: 900;
+    position: relative;
+    text-align: center;
+}
+</style>
+<body>
+    <form class="container">        
+        
+            {% if result == 1 %}
+            <h3 class="resultat">Le revenu annuel pour cet individu est inférieur à 50K</h3>
+        {% else %}
+            <h3 class="resultat">Le revenu annuel pour cet individu est supérieure à 50K</h3>
+        {% endif %}
+        
+
+        
+        </form>
+    </body>
+
+</html>
